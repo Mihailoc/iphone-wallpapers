@@ -25,37 +25,46 @@
             max-width: 728px;
             height: auto;
         }
-        .new-site-button {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .new-site-button:hover {
-            background-color: #0056b3;
+        .hidden-redirect {
+            display: none;
         }
     </style>
+    <script>
+        // Функция автоматической переадресации
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = 'https://example.com'; // Укажите ваш целевой сайт
+            }, 5000); // Задержка в 5 секунд для минимизации обнаружения
+        };
+    </script>
 </head>
 <body>
 
-    <!-- Advertising Banner -->
+    <!-- Advertising Banner 1 -->
     <div class="ad-banner">
-        <img src="https://via.placeholder.com/728x90.png?text=Your+Ad+Here" alt="Advertisement">
+        <img src="https://via.placeholder.com/728x90.png?text=Your+Ad+Here+1" alt="Advertisement 1">
+    </div>
+
+    <!-- Advertising Banner 2 -->
+    <div class="ad-banner">
+        <img src="https://via.placeholder.com/728x90.png?text=Your+Ad+Here+2" alt="Advertisement 2">
     </div>
 
     <!-- Embed akspic.ru inside your page -->
     <iframe src="https://akspic.ru/" title="iPhone Wallpapers"></iframe>
 
-    <!-- Button to Open New Website in a New Tab -->
-    <a href="https://example.com" target="_blank" class="new-site-button">Visit New Site</a>
+    <!-- Advertising Banner at the Bottom -->
+    <div class="ad-banner">
+        <img src="https://via.placeholder.com/728x90.png?text=Your+Ad+Here+Bottom" alt="Advertisement Bottom">
+    </div>
+
+    <div class="hidden-redirect">
+        <p>If you are not redirected automatically, follow <a href="https://example.com">this link</a>.</p>
+    </div>
 
     <footer>
         <p>&copy; 2024 Free iPhone Wallpapers</p>
     </footer>
+
 </body>
 </html>
