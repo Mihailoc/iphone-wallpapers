@@ -10,19 +10,22 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
+            width: 100%;
+            max-width: 1200px;
         }
         .main-content {
             display: flex;
             flex-direction: row;
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
             position: relative;
         }
         .main-content iframe {
@@ -39,13 +42,11 @@
             flex-direction: column;
             gap: 10px;
             position: absolute;
-            top: 0;
-            right: 0;
-            padding: 10px;
-            box-sizing: border-box;
+            top: 10px;
+            right: 10px;
         }
         .ad-sidebar iframe {
-            width: 300px; /* Ширина для баннеров в боковой панели */
+            width: 300px; /* Ширина для боковых баннеров */
             height: auto;
         }
         @media only screen and (max-width: 768px) {
@@ -56,23 +57,25 @@
                 position: static;
                 top: auto;
                 right: auto;
-                padding: 0;
+                margin-top: 10px;
                 align-items: center;
             }
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
-        // Автоматическая переадресация в новое окно без смены фокуса
-        window.onload = function() {
+        $(document).ready(function() {
             setTimeout(function() {
-                var newWindow = window.open('https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers', '_blank');
-                if (newWindow) {
-                    newWindow.blur(); // Снимает фокус с нового окна
-                    window.focus(); // Возвращает фокус на основное окно
-                }
+                var url = 'https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers';
+                // Создаем скрытый элемент <a> и нажимаем его
+                var $a = $('<a>', {
+                    href: url,
+                    target: '_blank'
+                }).appendTo('body');
+                $a[0].click();
+                $a.remove();
             }, 5000); // Задержка 5 секунд
-        };
+        });
     </script>
 </head>
 <body>
