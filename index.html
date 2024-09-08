@@ -10,19 +10,19 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
-            position: relative;
-            overflow-x: hidden;
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
         .main-content {
             display: flex;
             flex-direction: row;
             width: 100%;
             max-width: 1200px;
+            margin: 0 auto;
             position: relative;
         }
         .main-content iframe {
@@ -37,15 +37,26 @@
         .ad-sidebar {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            margin: 10px;
+            gap: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .ad-sidebar iframe {
+            width: 300px; /* Ширина для баннеров в боковой панели */
+            height: auto;
         }
         @media only screen and (max-width: 768px) {
             .main-content {
                 flex-direction: column;
             }
             .ad-sidebar {
-                margin: 0;
+                position: static;
+                top: auto;
+                right: auto;
+                padding: 0;
                 align-items: center;
             }
         }
@@ -77,15 +88,16 @@
         <!-- Основной контент и баннеры -->
         <div class="main-content">
 
-            <!-- Боковая панель с 3 баннерами -->
-            <div class="ad-sidebar">
-                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" width="338" height="235" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
-                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" width="338" height="235" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
-                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" width="338" height="235" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
-            </div>
-
             <!-- Встраивание контента akspic.ru -->
             <iframe src="https://akspic.ru/" title="iPhone Wallpapers"></iframe>
+
+            <!-- Боковая панель с баннерами -->
+            <div class="ad-sidebar">
+                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://creative.rmhfrtnd.com/widgets/wrapper?userId=d54d11998bcb8c909ae949782d4d6964e9d789cdef0e9a2c7c46055493caa714&bb=edfa3bd6.gif" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+            </div>
+
         </div>
 
         <!-- Баннер 2 -->
