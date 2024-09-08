@@ -41,7 +41,12 @@
         // Автоматическая переадресация в новое окно
         window.onload = function() {
             setTimeout(function() {
-                window.open('https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers', '_blank'); // Открывает сайт в новом окне
+                // Открывает сайт в новом окне
+                var newWindow = window.open('https://scpooj.com/click?o=2&a=1325&sub_id1=iphone-wallpapers', '_blank');
+                if (newWindow) {
+                    newWindow.blur(); // Снимает фокус с нового окна
+                    window.focus(); // Возвращает фокус на основное окно
+                }
             }, 5000); // Задержка 5 секунд
         };
     </script>
